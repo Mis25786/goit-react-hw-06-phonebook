@@ -12,8 +12,9 @@ import css from './App.module.css';
 import { addContact } from 'redux/contacts/actions';
 
 export const App = () => {
-  const { contacts } = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
+  console.log('contacts :>> ', contacts);
 
   const isFirstRender = useRef(true);
 

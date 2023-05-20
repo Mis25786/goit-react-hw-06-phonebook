@@ -4,13 +4,14 @@ import { deleteContact } from 'redux/contacts/actions';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const { contacts } = useSelector(state => state.contacts);
-  const { filter } = useSelector(state => state.filter);
+  const contacts = useSelector(state => state.contacts.contacts);
+  const filter = useSelector(state => state.filter.filter);
+  console.log('contacts :>> ', contacts);
+  console.log('filter :>> ', filter);
 
   const dispatch = useDispatch();
 
   const getVisibleContacts = () => {
-    console.log('filter :>> ', filter);
     const normalizeFilterContact = filter.toLowerCase();
     console.log('normalizeFilterContact :>> ', normalizeFilterContact);
 
