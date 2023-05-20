@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { deleteContact } from 'redux/actions';
+// import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const { contacts } = useSelector(state => state);
-  const { filter } = useSelector(state => state);
+  const { contacts } = useSelector(state => state.contacts);
+  const { filter } = useSelector(state => state.filter);
 
   const dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ const ContactList = () => {
           <p className={css['ContactList-text']}>{number}</p>
 
           <button
-            onClick={() => dispatch({ type: 'deleteContact', payload: id })}
+            onClick={() => dispatch(deleteContact(id))}
             className={css['ContactList-delete']}
           >
             delete
@@ -49,6 +50,58 @@ const ContactList = () => {
 // };
 
 export default ContactList;
+//!=========================11111111111===========================
+// import { useSelector, useDispatch } from 'react-redux';
+// import PropTypes from 'prop-types';
+// import css from './ContactList.module.css';
+
+// const ContactList = () => {
+//   const { contacts } = useSelector(state => state);
+//   const { filter } = useSelector(state => state);
+
+//   const dispatch = useDispatch();
+
+//   const getVisibleContacts = () => {
+//     const normalizeFilterContact = filter.toLowerCase();
+
+//     return contacts.filter(contact =>
+//       contact.name.toLowerCase().includes(normalizeFilterContact)
+//     );
+//   };
+
+//   const arryFilterContacts = getVisibleContacts();
+
+//   return (
+//     <ul>
+//       {arryFilterContacts.map(({ id, name, number }) => (
+//         <li key={id} className={css['ContactList-item']}>
+//           <p className={css['ContactList-text']}>{name}</p>
+//           <p className={css['ContactList-text']}>{number}</p>
+
+//           <button
+//             onClick={() => dispatch({ type: 'deleteContact', payload: id })}
+//             className={css['ContactList-delete']}
+//           >
+//             delete
+//           </button>
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
+
+// // ContactList.propTypes = {
+// //   contacts: PropTypes.arrayOf(
+// //     PropTypes.exact({
+// //       id: PropTypes.string.isRequired,
+// //       name: PropTypes.string.isRequired,
+// //       number: PropTypes.string.isRequired,
+// //     })
+// //   ),
+// //   onDeleteContact: PropTypes.func.isRequired,
+// // };
+
+// export default ContactList;
 
 //!==========================================================
 // import PropTypes from 'prop-types';
