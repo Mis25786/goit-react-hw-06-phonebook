@@ -9,7 +9,7 @@ import Filter from './Filter';
 import ContactList from './ContactList';
 
 import css from './App.module.css';
-import { addContact } from 'redux/actions';
+import { addContact } from 'redux/contacts/actions';
 
 export const App = () => {
   const { contacts } = useSelector(state => state.contacts);

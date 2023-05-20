@@ -1,4 +1,7 @@
+import { contactsInitialState } from './contacts/contactsInitialState';
+import { filterInitialState } from './filter/filterInitialState';
+
 export const initialState = {
-  contacts: { contacts: [] },
-  filter: { filter: '' },
+  contacts: contactsInitialState,
+  filter: filterInitialState,
 };

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/contacts/actions';
 // import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 
@@ -10,7 +10,9 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   const getVisibleContacts = () => {
+    console.log('filter :>> ', filter);
     const normalizeFilterContact = filter.toLowerCase();
+    console.log('normalizeFilterContact :>> ', normalizeFilterContact);
 
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizeFilterContact)
