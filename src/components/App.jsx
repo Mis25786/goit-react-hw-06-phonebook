@@ -14,16 +14,15 @@ import { addContact } from 'redux/contacts/actions';
 export const App = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
-  console.log('contacts :>> ', contacts);
 
   const isFirstRender = useRef(true);
 
   const createUser = data => {
-    console.log('contacts :>> ', contacts);
     if (contacts.find(contact => contact.name === data.name)) {
       return Notify.info('This name already exists in the list');
     }
-    dispatch(addContact({ ...data, id: nanoid() }));
+    dispatch(addContact(data));
+    // dispatch(addContact({ ...data, id: nanoid() }));
   };
 
   useEffect(() => {

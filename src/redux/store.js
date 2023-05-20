@@ -1,7 +1,8 @@
-import { createStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { reducer } from './reducer';
 
-export const store = createStore(reducer);
+// export const store = createStore(reducer);
+export const store = configureStore({ reducer });
 
 //!===========================1111111111111==========================
 // import { createStore } from '@reduxjs/toolkit';
