@@ -17,7 +17,6 @@ const ContactList = () => {
   };
 
   const arryFilterContacts = getVisibleContacts();
-  console.log(arryFilterContacts);
 
   return (
     <ul>

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { nanoid } from 'nanoid';
@@ -15,35 +14,12 @@ export const App = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
 
-  const isFirstRender = useRef(true);
-
   const createUser = data => {
     if (contacts.find(contact => contact.name === data.name)) {
       return Notify.info('This name already exists in the list');
     }
     dispatch(addContact({ ...data, id: nanoid() }));
   };
-
-  // useEffect(() => {
-  //   const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-
-  //   if (parsedContacts) {
-  //     // setContacts(parsedContacts);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (isFirstRender.current) {
-  //     isFirstRender.current = false;
-  //     return;
-  //   }
-
-  //   const contactList = JSON.stringify(contacts);
-
-  //   if (contactList) {
-  //     localStorage.setItem('contacts', contactList);
-  //   }
-  // }, [contacts]);
 
   return (
     <>
